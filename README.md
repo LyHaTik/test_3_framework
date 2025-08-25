@@ -62,6 +62,7 @@ cd test_3_framework```
 
 ### 2. Запустить сервисы
 docker compose up --build -d
+dos2unix entrypoint.sh (для запуска на WIndows)
 
 ### 3. Доступ к сервисам
 FastAPI → http://localhost:8011/docs
