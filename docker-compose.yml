@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tasks_db
+    ports:
+      - "5442:5432"
+    volumes:
+      - ./pg_data_test:/var/lib/postgresql/data
+
+  django_app:
+    build: ./django_app
+    container_name: django_app
+    environment:
+      DB_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tasks_db
+      DB_PORT: 5432
+    depends_on:
+      - db
+    ports:
+      - "8013:8000"
+  fastapi_app:
+    build: ./fastapi_app
+    container_name: fastapi_app
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/tasks_db
+    depends_on:
+      - db
+    ports:
+      - "8011:8000"
+  flask_app:
+    build: ./flask_app
+    container_name: flask_app
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/tasks_db
+    depends_on:
+      - db
+    ports:
+      - "8012:5000"

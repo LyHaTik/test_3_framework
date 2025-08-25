@@ -1,3 +1,29 @@
+# Gauge - metadata dir
+.gauge
+
+# Gauge - log files dir
+logs
+
+# Gauge - reports dir
+reports
+
+# Gauge - python compiled files
+*.pyc
+
+
+# Gauge - metadata dir
+.gauge
+
+# Gauge - log files dir
+logs
+
+# Gauge - reports dir
+reports
+
+# Gauge - python compiled files
+*.pyc
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -205,3 +231,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
